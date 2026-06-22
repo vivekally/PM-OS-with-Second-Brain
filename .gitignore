@@ -7,3 +7,6 @@
 # Environment / secrets
 .env
 .env.local
+
+# Claude Code local instructions (never push)
+CLAUDE.md
