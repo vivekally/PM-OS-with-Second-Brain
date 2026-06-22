@@ -1,0 +1,9 @@
+# macOS
+.DS_Store
+
+# gstack tooling state (machine-local, not versioned)
+.gstack/
+
+# Environment / secrets
+.env
+.env.local
