@@ -1,0 +1,21 @@
+{
+  "name": "Phase 2 — Skill Orchestration Layer",
+  "file": "finalized.html",
+  "date": "2026-06-22",
+  "design_direction": "Workbench B",
+  "palette": "dark-slate #070A11 + electric-green #3DDC84",
+  "fonts": ["Inter", "JetBrains Mono"],
+  "layout": "three-pane: context-rail + main-output + metadata-rail",
+  "skills_shown": ["Write PRD", "Prioritize Backlog", "Run Retro", "Define Success Metrics", "Draft User Stories", "Competitive Analysis", "Stakeholder Update"],
+  "interactive_behaviors": [
+    "skill-selection-updates-output-and-rails",
+    "run-skill-simulates-streaming-with-typing-dots",
+    "follow-up-prompt-adds-to-thread",
+    "copy-output-to-clipboard",
+    "export-md-download",
+    "run-history-sidebar",
+    "context-used-per-skill"
+  ],
+  "pretext": "cdn-esm.sh",
+  "status": "finalized"
+}
