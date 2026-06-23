@@ -189,6 +189,41 @@ Thin versions give the same learning at a fraction of the cost.
 Run a distribution motion in parallel from week one: a free, shareable artifact
 that doubles as top-of-funnel and as brain-seeding intake.
 
+### Phase 1 delivery decision: Claude Code skill, not a web app
+
+Phase 1 ships as a **Claude Code skill** (`/pm-brain`), not a standalone web app.
+This is a deliberate decision with three consequences:
+
+**Why it works:**
+- Users run `/pm-brain` inside their own `claude` CLI session — the API call is
+  covered by their existing Claude Pro or Max subscription ($20–$100/mo). Zero
+  API cost to the product, zero separate key or billing page for the user.
+- Target users are PMs already using Claude seriously enough to pay for Pro/Max.
+  Requiring the CLI self-selects exactly the right early adopters and filters out
+  casual signups who won't build a brain habit.
+- Ships in days, not weeks. A Claude Code skill is the Phase 1 prototype already
+  built — no web infrastructure, no auth, no billing system needed.
+
+**Subscription model clarity:**
+
+| User has | Covers Phase 1 | Requires |
+|---|---|---|
+| Claude Pro ($20/mo) | ✓ | `claude` CLI installed |
+| Claude Max ($100/mo) | ✓ | `claude` CLI installed |
+| Anthropic API key only | ✗ | Phase 1 needs a Pro/Max subscription |
+
+**The tradeoff — narrower but better:**
+A web app would reach anyone with a browser. A Claude Code skill reaches only
+users with Pro/Max + the CLI. That's a smaller number but a better-qualified
+wedge — these are PMs who have already paid for AI, already use it daily, and
+are most likely to build a context habit. They are also the exact users the
+falsification test needs.
+
+**Interface progression:**
+- **Phase 1:** Claude Code skill (`/pm-brain`) — runs on user's own subscription
+- **Phase 3:** add a web UI for users who don't want the CLI, with their own API
+  key or a hosted tier. Do not build this until a Phase 1 user explicitly asks for it.
+
 ## Diagrams
 
 ### 1. Phase Roadmap & Falsification Gate
@@ -391,8 +426,9 @@ flowchart TD
 
 ## Distribution Plan
 
-- **Delivery:** web app (Phase 1+), plus a Claude Code/cowork interface — existing
-  deploy pipeline covers the web app.
+- **Delivery:** Claude Code skill for Phase 1 (runs on user's Pro/Max subscription,
+  no API cost to the product); web app added in Phase 3 only when a real user asks
+  for it. Existing deploy pipeline covers the future web app.
 - **GTM (pick ONE primary to start):** free viral context tool whose output is
   shareable and seeds the brain; OR open-source a PM-skills layer for credibility;
   OR content/community to build the audience the founder lacks. Do not run all
