@@ -189,6 +189,176 @@ Thin versions give the same learning at a fraction of the cost.
 Run a distribution motion in parallel from week one: a free, shareable artifact
 that doubles as top-of-funnel and as brain-seeding intake.
 
+## Diagrams
+
+### 1. Phase Roadmap & Falsification Gate
+
+```mermaid
+flowchart LR
+    T1["T1 · Falsification Test\nwatch 1 real PM this week"]
+    P1["Phase 1\nGuided Context Builder\nships in days"]
+    GATE{{"Wedge proven?\nstructured clearly beats\nhand-paste"}}
+    P2["Phase 2\nSkill Orchestration\nthin first"]
+    P3["Phase 3\nTwo Interfaces\nClaude Code → UI"]
+    P4["Phase 4\nSelf-Evolving Brain\nbuilt on real signal"]
+    STOP["Stop & Rethink\nwedge doesn't exist"]
+
+    T1 --> GATE
+    P1 --> GATE
+    GATE -- "YES" --> P2
+    GATE -- "NO" --> STOP
+    P2 --> P3 --> P4
+```
+
+### 2. System Architecture
+
+```mermaid
+graph TD
+    PM(["PM / User"])
+
+    subgraph capture["Phase 1 — Context Layer"]
+        INTERVIEW["Guided Capture\n/pm-brain interview"]
+    end
+
+    subgraph brain["PM Brain  ·  plain markdown folders"]
+        K["knowledge/\ncompany · product · users · strategy"]
+        H["hypotheses/\nactivation · user-pain"]
+        D["decisions/\nplg-vs-enterprise · ..."]
+        ST["stakeholders/"]
+        IN["ingestion/ · source/"]
+    end
+
+    subgraph skills["Phase 2 — Skill Layer"]
+        CMD["PM Commands\n/discover · /risk · /strategy · /review · ..."]
+        CHAIN["pm-skills chains\n68 skills · 9 plugins · 42 workflows"]
+    end
+
+    subgraph ai["AI Layer  ·  routed through own layer"]
+        LLM["Claude · ChatGPT"]
+    end
+
+    PM --> INTERVIEW
+    INTERVIEW --> K & H & D & ST & IN
+    K & H & D & ST --> CMD
+    CMD --> CHAIN --> LLM
+    LLM --> PM
+```
+
+### 3. Phase 1 — Bootstrap Flow (Greenfield & Migration)
+
+```mermaid
+flowchart TD
+    START(["PM opens /pm-brain"])
+    MODE{"Mode?"}
+
+    GF["Greenfield\n~12 min guided interview"]
+    MIG["Migration\npoint at Notion export · Jira CSV\nGong transcript · Slack"]
+
+    B1["Batch 1 · Company & Role"]
+    B2["Batch 2 · Product & Market"]
+    B3["Batch 3 · Users & ICP"]
+    B4["Batch 4 · Strategy & Bets"]
+    B5["Batch 5 · Decisions & People"]
+
+    SYNTH["Live synthesis\nmarkdown files + provenance tag on every claim"]
+    EXPORT["Export — portable brain folder\ngit commit local · never pushed"]
+    USE["Drop into Claude Project · ChatGPT\nuse immediately · zero lock-in"]
+
+    START --> MODE
+    MODE -- "no existing notes" --> GF
+    MODE -- "I have existing notes" --> MIG
+    MIG -- "absorbs sources · pre-fills answers" --> B1
+    GF --> B1
+    B1 --> B2 --> B3 --> B4 --> B5 --> SYNTH --> EXPORT --> USE
+```
+
+### 4. The One Loop — Brain Lifecycle
+
+```mermaid
+flowchart LR
+    subgraph inputs["Inputs"]
+        ANS["Interview answers"]
+        TR["Transcripts · Gong"]
+        EXP["Notion export · Jira CSV"]
+        SL["Slack · docs"]
+    end
+
+    subgraph loop["The One Loop"]
+        direction TB
+        I["① Ingest"]
+        S["② Source + Synthesize"]
+        PR["③ Propagate"]
+        T["④ Tag provenance"]
+        SW["⑤ Sweep  ·  Friday /review"]
+        I --> S --> PR --> T --> SW --> I
+    end
+
+    subgraph folders["Brain Folders"]
+        K["knowledge/"]
+        H["hypotheses/"]
+        D["decisions/"]
+        ST["stakeholders/"]
+    end
+
+    subgraph prov["Provenance  ·  trust hierarchy"]
+        DOC["documented  ·  #7FE8B0\ninterview · data · survey"]
+        VER["verbal  ·  #5BC0EB\nsaid in a meeting"]
+        HUN["hunch  ·  #C9A227\nI think · I bet · gut"]
+        IND["industry  ·  #8A93A6\nbenchmark · best practice"]
+    end
+
+    inputs --> I
+    PR --> K & H & D & ST
+    T --> DOC & VER & HUN & IND
+```
+
+### 5. Phase 2 — Skill Execution Flow
+
+```mermaid
+sequenceDiagram
+    actor PM
+    participant CLI as CLI / UI
+    participant Brain as PM Brain
+    participant Chain as Skill Chain
+    participant LLM as LLM API
+
+    PM->>CLI: /discover
+    CLI->>Brain: load context files
+    Note over Brain: knowledge/users.md<br/>hypotheses/activation.md<br/>knowledge/strategy.md
+    Brain-->>CLI: markdown + provenance tags
+    CLI->>Chain: brainstorm-ideas [context]
+    Chain->>LLM: prompt + brain context
+    LLM-->>Chain: opportunity candidates
+    Chain->>Chain: identify-assumptions
+    Chain->>Chain: prioritize-assumptions
+    Chain->>Chain: brainstorm-experiments
+    Chain-->>CLI: Opportunity Solution Tree<br/>(Teresa Torres · cited brain files)
+    CLI-->>PM: output + suggested next<br/>/risk  or  /write-prd
+```
+
+### 6. Research Vehicle Strategy — PM → Lawyer Path
+
+```mermaid
+flowchart TD
+    subgraph vehicle["Research Vehicle  ·  PM persona"]
+        P1L["Phase 1\nWhat context PMs maintain by hand"]
+        P2L["Phase 2\nWhich skills they reach for\nWhat context each skill needs"]
+        P3L["Phase 3\nWhere they prefer to work\nClaude Code vs UI"]
+        P4L["Phase 4\nSelf-evolving brain\nbuilt on real usage signal"]
+        P1L --> P2L --> P3L --> P4L
+    end
+
+    subgraph transfer["Transferable Layer  ·  ⚠ unnamed"]
+        TL["Capture UX?\nEvolution loop?\nTrust model?\nMust be named before pivot"]
+    end
+
+    subgraph endgame["Target Endgame  ·  Lawyer persona"]
+        LB["Lawyer Brain\nCitation-bound · Confidential\nAuditable · Malpractice-stakes\n$11B market · Harvey benchmark"]
+    end
+
+    P4L --> TL --> LB
+```
+
 ## Open Questions
 
 1. **Transferability core (top priority).** Name the layer that carries from a PM
