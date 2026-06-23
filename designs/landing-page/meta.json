@@ -1,0 +1,13 @@
+{
+  "name": "Landing Page",
+  "file": "finalized.html",
+  "date": "2026-06-22",
+  "design_direction": "Workbench B",
+  "palette": "dark-slate #070A11 + electric-green #3DDC84",
+  "fonts": ["Inter", "JetBrains Mono"],
+  "sections": ["sticky-nav", "hero-with-mini-mockup", "problem-comparison", "how-it-works-3step", "cta-footer"],
+  "headline": "Your AI knows nothing about your product.",
+  "pretext": "cdn-esm.sh",
+  "responsive_breakpoints": ["768px", "480px"],
+  "status": "finalized"
+}
