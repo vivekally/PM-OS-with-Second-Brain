@@ -274,3 +274,24 @@ artifact.
   links) instead of abstractions. You think in working examples.
 - Twice you routed around the PM→lawyer transferability question. Noting it
   plainly: that's the one piece of the thesis you haven't yet put weight on.
+
+## References & Prior Art
+
+### PM OS products (prior art / competitors)
+- Aakash Gupta — PM OS: https://www.news.aakashg.com/p/pm-os
+- Growth Pioneer — PM OS (Gumroad): https://growthpioneer.gumroad.com/l/pmos
+- Aakash Gupta — Claude Code Memory System: https://www.news.aakashg.com/p/claude-code-memory-system
+
+### Paweł Huryn
+- PM Brain (OS): https://www.productcompass.pm/p/pm-brain-os
+  - GitHub: https://github.com/phuryn/pm-brain
+- PM Skills (GitHub): https://github.com/phuryn/pm-skills
+
+### Second-brain / adjacent products
+- mysecond.ai: https://mysecond.ai/
+- Lodestone PM: https://www.lodestone.pm
+
+### Reference architecture (substrate to adopt)
+- gstack: https://github.com/garrytan/gstack
+- gbrain: https://github.com/garrytan/gbrain
+- gbrain — company-brain tutorial: https://github.com/garrytan/gbrain/blob/master/docs/tutorials/company-brain.md
